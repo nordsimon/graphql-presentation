@@ -54,7 +54,7 @@ const theme = createTheme({
 });
 
 function graphQLFetcher(graphQLParams) {
-  return fetch('http://192.168.220.48:1910/graphql', {
+  return fetch('http://localhost:8090/graphql', {
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(graphQLParams),
@@ -71,8 +71,8 @@ export default class Presentation extends React.Component {
             <Heading size={1} fit caps lineHeight={1} textColor="black">
               GraphQL
             </Heading>
-            <Heading size={4} textColor="white" caps>
-              Data everywhere
+            <Heading size={4} textColor="white">
+              Go to GraphQL without passing REST
             </Heading>
           </Slide>
 
@@ -84,16 +84,53 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide>
-            <Heading size={1}>
-              Links
+            <Heading size={1} textColor="white">
+              GraphQL is not
             </Heading>
             <List>
-              <ListItem><Link target="_blank" href="https://github.com/graphql/graphql-js">
-                Reference Implementation
-              </Link></ListItem>
-              <ListItem><Link target="_blank" href="https://github.com/graphql/graphiql">
-                Interactive GraphiQL
-              </Link></ListItem>
+              <Appear>
+                <ListItem>
+                  A database nor a language for a specific database
+                </ListItem>
+              </Appear>
+              <Appear>
+                <ListItem>
+                  Not a React specific tool
+                </ListItem>
+              </Appear>
+              <Appear>
+                <ListItem>
+                  Despite its name, has very little to do with graphs
+                </ListItem>
+              </Appear>
+            </List>
+          </Slide>
+
+          <Slide>
+            <Heading size={1} textColor="white">
+              GraphQL is
+            </Heading>
+            <List>
+              <Appear>
+                <ListItem>
+                  Developed by facebook
+                </ListItem>
+              </Appear>
+              <Appear>
+                <ListItem>
+                  Language agnostic query language
+                </ListItem>
+              </Appear>
+              <Appear>
+                <ListItem>
+                  Server definition of what data currently available
+                </ListItem>
+              </Appear>
+              <Appear>
+                <ListItem>
+                  Client definition of what data I'm intrested in
+                </ListItem>
+              </Appear>
             </List>
           </Slide>
 
@@ -116,11 +153,15 @@ export default class Presentation extends React.Component {
                 /usersWithFriends
               </p>
             </Appear>
-            <Appear>
-              <p>
-                /usersWithFriendsExceptSameFriend
-              </p>
-            </Appear>
+          </Slide>
+
+          <Slide>
+            <Heading size={1}>
+              /meAndMyFriends
+            </Heading>
+            <Heading size={4}>
+              My user with friends, RESTful way
+            </Heading>
           </Slide>
 
           <Slide>
@@ -129,13 +170,93 @@ export default class Presentation extends React.Component {
               source={require("raw!../assets/userData.example")}
               margin="20px auto"
             />
-
           </Slide>
 
           <Slide>
             <div style={{height: window.innerHeight * 0.8, textAlign: 'left',fontSize: 50}}>
               <GraphiQL fetcher={graphQLFetcher} />
             </div>
+          </Slide>
+
+          <Slide>
+            <div style={{width: '50%', float: 'left'}}>
+              <Heading size={1}>
+                REST
+              </Heading>
+              <p>
+                Server defines payload
+              </p>
+              <p>
+                All data
+              </p>
+              <p>
+                Needs external documentation
+              </p>
+            </div>
+            <div style={{width: '50%', float: 'left'}}>
+              <Heading size={1}>
+                GraphQL
+              </Heading>
+              <p>
+                Client defines payload
+              </p>
+              <p>
+                Only data neccessary
+              </p>
+              <p>
+                Self documented
+              </p>
+            </div>
+          </Slide>
+
+          <Slide>
+            <Heading caps size={1}>
+              More databases!
+            </Heading>
+            <Heading size={4}>
+              example: my favourite packages
+            </Heading>
+
+          </Slide>
+
+          <Slide>
+            <Heading size={1}>
+              TODO
+            </Heading>
+            <Appear>
+              <p>
+                Find all package.json files
+              </p>
+            </Appear>
+            <Appear>
+              <p>
+                Make them searchable through ElasticSearch
+              </p>
+            </Appear>
+            <Appear>
+              <p>
+                Fetch additional package info from NPM
+              </p>
+            </Appear>
+            <Appear>
+              <p>
+                Fetch issues from github
+              </p>
+            </Appear>
+          </Slide>
+
+          <Slide>
+            <Heading size={1}>
+              Links
+            </Heading>
+            <List>
+              <ListItem><Link target="_blank" href="https://github.com/graphql/graphql-js">
+                Reference Implementation
+              </Link></ListItem>
+              <ListItem><Link target="_blank" href="https://github.com/graphql/graphiql">
+                Interactive GraphiQL
+              </Link></ListItem>
+            </List>
           </Slide>
 
         </Deck>
